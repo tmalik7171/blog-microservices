@@ -1,0 +1,9 @@
+.comment-box {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #00c6ff;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.95rem;
+}

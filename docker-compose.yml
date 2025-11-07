@@ -1,0 +1,100 @@
+version: "3.9"
+
+services:
+  # ------------------ USER SERVICE ------------------
+  user-service:
+    build: ./services/user-service
+    container_name: user-service
+    ports:
+      - "4001:4001"
+    environment:
+      - PORT=4001
+      - MONGO_URI=mongodb://user-mongo:27017/userdb
+      - JWT_SECRET=supersecretkey
+    depends_on:
+      - user-mongo
+    networks:
+      - blog-network
+
+  user-mongo:
+    image: mongo:6
+    container_name: user-mongo
+    volumes:
+      - user-data:/data/db
+    networks:
+      - blog-network
+
+  # ------------------ POST SERVICE ------------------
+  post-service:
+    build: ./services/post-service
+    container_name: post-service
+    ports:
+      - "4002:4002"
+    environment:
+      - PORT=4002
+      - MONGO_URI=mongodb://post-mongo:27017/postdb
+      - JWT_SECRET=supersecretkey
+    depends_on:
+      - post-mongo
+    networks:
+      - blog-network
+
+  post-mongo:
+    image: mongo:6
+    container_name: post-mongo
+    volumes:
+      - post-data:/data/db
+    networks:
+      - blog-network
+
+  # ------------------ COMMENT SERVICE ------------------
+  comment-service:
+    build: ./services/comment-service
+    container_name: comment-service
+    ports:
+      - "4003:4003"
+    environment:
+      - PORT=4003
+      - MONGO_URI=mongodb://comment-mongo:27017/commentdb
+      - JWT_SECRET=supersecretkey
+    depends_on:
+      - comment-mongo
+    networks:
+      - blog-network
+
+  comment-mongo:
+    image: mongo:6
+    container_name: comment-mongo
+    volumes:
+      - comment-data:/data/db
+    networks:
+      - blog-network
+
+  # ------------------ API GATEWAY ------------------
+  api-gateway:
+    build: ./services/api-gateway
+    container_name: api-gateway
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - JWT_SECRET=supersecretkey
+      - USER_SERVICE_URL=http://user-service:4001
+      - POST_SERVICE_URL=http://post-service:4002
+      - COMMENT_SERVICE_URL=http://comment-service:4003
+    depends_on:
+      - user-service
+      - post-service
+      - comment-service
+    networks:
+      - blog-network
+
+# ------------------ NETWORKS & VOLUMES ------------------
+networks:
+  blog-network:
+    driver: bridge
+
+volumes:
+  user-data:
+  post-data:
+  comment-data:

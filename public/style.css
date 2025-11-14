@@ -1,0 +1,314 @@
+/* ---------------------------------------------------
+   BLOG-IT — ULTRA COLORFUL + MODERN UI THEME (CLEANED)
+--------------------------------------------------- */
+
+/* 🌈 COLOR PALETTE (VIBRANT + NEON) */
+:root {
+  --bg-1: #0f0f17;
+  --bg-2: #131324;
+
+  --gradient-1: linear-gradient(135deg, #ff6bcb, #845ec2);
+  --gradient-2: linear-gradient(135deg, #6fffe9, #28c6ff);
+  --gradient-3: linear-gradient(135deg, #ff9f1c, #ff4040);
+
+  --glass: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --text: #f5f7fa;
+  --muted: #b0b7c3;
+
+  --radius: 18px;
+  --shadow: 0 8px 28px rgba(0, 0, 0, 0.65);
+}
+
+/* 🌌 GLOBAL */
+body {
+  margin: 0;
+  font-family: "Inter", "Poppins", sans-serif;
+  background:
+    radial-gradient(circle at top left, #ff6bcb22, transparent 60%),
+    radial-gradient(circle at bottom right, #28c6ff22, transparent 60%),
+    var(--bg-1);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1150px;
+}
+
+/* 🍭 NAVBAR */
+.navbar {
+  background: linear-gradient(135deg, #1b1b2a, #171724);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0.8rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.nav-link {
+  color: var(--muted);
+  font-weight: 600;
+  transition: 0.25s;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link:hover {
+  color: #fff;
+  text-shadow: 0 0 12px #fff;
+}
+
+/* Gradient active tab text */
+.nav-link.active {
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Active underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 3px;
+  background: var(--gradient-2);
+  border-radius: 6px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* NAVBAR BRAND */
+.brand-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ff6bcb, #6fffe9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  margin-right: 22px;
+}
+
+/* 🔘 BUTTONS */
+.btn {
+  border-radius: var(--radius);
+  border: none;
+  padding: 10px 18px;
+  font-weight: 600;
+  transition: 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--gradient-1);
+  color: white;
+  box-shadow: 0 0 14px #ff6bcb55;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px #ff6bcbcc;
+}
+
+.btn-outline-primary {
+  background: transparent;
+  border: 2px solid #845ec255;
+  color: #dcdcff;
+}
+
+.btn-outline-primary:hover {
+  background: #845ec233;
+  box-shadow: 0 0 12px #845ec2aa;
+}
+
+/* EDIT BUTTON */
+.btn-edit {
+  background: linear-gradient(135deg, #ffffffee, #e9e9ffdd) !important;
+  color: #1a1a1a !important;
+  border: 1px solid #ffffffaa !important;
+  border-radius: 14px;
+  padding: 8px 18px;
+  font-weight: 600;
+  box-shadow: 0 2px 10px rgba(255,255,255,0.3);
+  transition: 0.25s ease;
+}
+
+.btn-edit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(255,255,255,0.55);
+}
+
+/* 🧊 CARDS */
+.card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  color: var(--text);
+}
+
+/* white strip fix */
+.card-header {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #e6eef8 !important;
+}
+
+.card-footer {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 🎨 BLOG TITLES */
+.card-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: var(--gradient-2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 📝 INPUT FIELDS (Metallic Navy Blue) */
+.form-control,
+textarea.form-control {
+  background: linear-gradient(135deg, #1f2a44, #263556) !important;
+  color: #f5f7ff !important;
+  border-radius: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+  padding: 12px;
+  font-weight: 500;
+  box-shadow: 0 0 12px rgba(20, 30, 60, 0.35);
+  transition: 0.25s ease;
+}
+
+.form-control:focus {
+  background: linear-gradient(135deg, #243152, #2f4166) !important;
+  border-color: #6fffe9 !important;
+  box-shadow: 0 0 14px #6fffe9aa;
+  outline: none;
+}
+
+textarea.form-control::placeholder {
+  color: #a9b3c9aa !important;
+}
+
+/* ✨ FLASH MESSAGES */
+.flash-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 330px;
+  max-width: 420px;
+  border-left: 6px solid;
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  animation: slideIn 0.4s ease-out;
+  backdrop-filter: blur(14px);
+}
+
+.flash-success {
+  background: #10b98133;
+  border-color: #10b981;
+}
+
+.flash-error {
+  background: #ef444433;
+  border-color: #ef4444;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(120%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* 💬 COMMENTS */
+.comments-list .card {
+  border-radius: var(--radius);
+  background: #ffffff06;
+  border: 1px solid #ffffff22;
+}
+
+.comments-list p {
+  color: #ffffff !important;
+  font-size: 1rem;
+}
+
+.comments-list strong {
+  color: #6fffe9 !important;
+  font-weight: 700;
+}
+
+.comments-list small {
+  color: #d0d7e8 !important;
+}
+
+/* BLOG PAGE CONTENT */
+.blog-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  padding: 10px 4px;
+  color: #e9e9ff;
+}
+
+/* PROFILE AVATAR */
+.rounded-circle {
+  background: var(--gradient-3);
+  color: white;
+  box-shadow: 0 0 18px #ff4040aa;
+}
+
+/* PROFILE BLOG VISIBILITY FIX */
+.profile-blog-card {
+  color: #e9e9ff !important;
+}
+
+.profile-blog-card .card-title {
+  color: #6fffe9 !important;
+  font-weight: 700;
+}
+
+.profile-blog-card .card-text {
+  color: #d4d8e8 !important;
+  opacity: 1 !important;
+}
+
+.profile-blog-card small {
+  background: rgba(255, 255, 255, 0.15) !important;
+  padding: 4px 10px;
+  border-radius: 12px;
+  color: white !important;
+}
+
+/* UNIVERSAL VISIBILITY FIX */
+.card-text,
+.card p,
+.card small,
+.blog-content p,
+.text-muted,
+.card-body .text-muted {
+  color: #e7ecff !important;
+  opacity: 1 !important;
+}
+
+/* BLOG META */
+.blog-meta,
+.blog-meta small,
+.blog-meta span,
+.blog-meta a {
+  color: #cfe6ff !important;
+  font-weight: 500;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .flash-message {
+    left: 15px;
+    right: 15px;
+  }
+}

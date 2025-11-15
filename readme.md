@@ -21,7 +21,6 @@
 - [Architecture Diagram](#architecture-diagram)
 - [Sequence Diagram](#sequence-diagram)
 - [Database Schema](#database-schema)
-- [Folder Structure](#folder-structure)
 - [Setup Instructions](#setup-instructions)
 - [Screenshots](#screenshots)
 - [Future Enhancements](#future-enhancements)
@@ -184,33 +183,6 @@ Server -->> User: Logged in + Redirect to /blogs
   ]
 }
 
-# 📂 Folder Structure
-blogify/
-│
-├── models/
-│   ├── blog.js
-│   └── user.js
-│
-├── routes/
-│   ├── blogs.js
-│   └── user.js
-│
-├── views/
-│   ├── layouts/
-│   ├── users/
-│   ├── add.ejs
-│   ├── edit.ejs
-│   ├── index.ejs
-│   └── show.ejs
-│
-├── public/
-│   └── style.css
-│
-├── middlewares.js
-├── models.js
-├── app.js
-├── package.json
-└── README.md
 
 # ⚙️ Setup Instructions
 
